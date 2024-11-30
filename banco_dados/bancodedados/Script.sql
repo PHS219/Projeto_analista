@@ -1,0 +1,36 @@
+
+CREATE DATABASE MeuBancoDeDados;
+
+CREATE TABLE Leads (
+    Id INT IDENTITY PRIMARY KEY,
+    Nome NVARCHAR(100) NOT NULL,
+    Telefone NVARCHAR(15) NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    CursoInteresse NVARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE Cursos (
+    Id INT IDENTITY PRIMARY KEY,
+    Descricao NVARCHAR(100) NOT NULL
+);
+
+CREATE TABLE Turmas (
+    Id INT IDENTITY PRIMARY KEY,
+    Descricao NVARCHAR(100) NOT NULL,
+    CursoId INT NOT NULL,
+    FOREIGN KEY (CursoId) REFERENCES Cursos(Id)
+);
+
+CREATE TABLE Alunos (
+    Id INT IDENTITY PRIMARY KEY,
+    CodigoMatricula INT NOT NULL UNIQUE,
+    Nome NVARCHAR(100) NOT NULL,
+    Telefone NVARCHAR(15) NOT NULL,
+    Email NVARCHAR(100) NOT NULL,
+    CursoId INT NOT NULL,
+    TurmaId INT NOT NULL,
+    DataCadastro DATETIME NOT NULL,
+    FOREIGN KEY (CursoId) REFERENCES Cursos(Id),
+    FOREIGN KEY (TurmaId) REFERENCES Turmas(Id)
+);

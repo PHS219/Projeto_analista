@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matricular Aluno</title>
+    <link rel="stylesheet" href="matricula.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Matricular Aluno</h1>
+        <form id="matriculaForm">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone" name="telefone">
+
+            <label for="curso">Curso</label>
+            <select id="curso" name="curso" required>
+            </select>
+
+            <label for="turma">Turma</label>
+            <select id="turma" name="turma" required disabled>
+            </select>
+
+            <button type="submit">Matricular</button>
+        </form>
+    </div>
+
+    <script src="matricula.js"></script>
+</body>
+</html>
